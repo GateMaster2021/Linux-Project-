@@ -1,0 +1,55 @@
+#!/bin/bash
+
+x=""
+
+#The Following Block of code will be the introduction information when running the file to start the game.
+        echo "This is a Game of dice rolling."
+        echo -e "\nIn this game the objective is to roll a higher than your oponent."
+        echo -e "\nThere will be 5 rounds to this game."
+        echo -e "\nAt the end of the game in case of a tie there will be an extra round to determine the winner."
+        echo -e "\nThe player with the highest end total will be pronounced the winner!"
+
+#The Following Block of code will be a boolean true of false to asks the user if they would like to play or not. 
+        echo "Would you like to begin the game? (Y/N):"
+        read begin
+        if [ $begin = "y" -o $begin = "Y" ]
+        then
+        echo -e "\nLet the games begin"
+        elif [ $begin = "n" -o $begin = "N" ]
+        then
+        echo -e "\nThat is your loss... Goodbye"
+        else
+        echo -e "\nWhat the hell is even that"
+        fi
+        
+#The following block of code will begin the logic for rolling the dice.
+        If [ "$#" -lt 2 }
+                echo "How many times do you want to roll? (always input 1 Roll)"
+                        read dice_roll
+
+                echo "How many dice do you want me to roll? (Always input 2)"
+                        read dice_num
+
+                else
+                        dice_rolls=1
+                        dice_num=2
+        fi
+
+
+dice=( 1 2 3 4 5 6 )
+
+for i in $(seq 1 $dice_roll)
+do
+        for y in $(seq 1 $dice_num)
+        do
+     x="${x}${dice[$(($RANDOM%6))]},"
+done
+
+echo "$x"
+roll="(echo "$x" |grep 1 |grep -v 2 |grep -v 3 |grep -v 4 |grep -v 5 |grep -v 6 )"
+if [ "$roll" == "1 -o 2 -o 3 -o 4 -o 5 -o 6"
+then
+        let $Player1_Score=$roll
+fi
+x=""
+done
