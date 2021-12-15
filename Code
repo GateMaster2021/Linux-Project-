@@ -21,41 +21,48 @@ x=""
         else
         echo -e "\nWhat the hell is even that"
         fi
-        
 #The following block of code will begin the logic for rolling the dice.
 #If there are not two arguments echo "How many times do you want to roll? (always input 1 Roll)" (The reason to always input 1 is because it needs to take turns with player2)
-
-        If [ "$#" -lt 2 }
-                echo "How many times do you want to roll? (always input 1 Roll)"
-                        read dice_roll
 #It will read "dice_roll and assign it a value.
 #Then it will echo "How many dice do you want me to roll?" (The reason always input 1 is there is you only want to roll 1 die). 
+#else the statements both must equal 
+
+        if [ "$#" -lt 2 ]
+                then
+
+                echo "How many times do you want to roll? (always input 1 Roll)"
+                        read dice_roll
 
                 echo "How many dice do you want me to roll? (Always input 1)"
                         read dice_num
-#else the statements both must equal 
-                elif
+
+                else
                         [ $dice_rolls = 1 ]
                         [ $dice_num = 1 ]
-                else
-                echo -e "\nYou did not input the correct values Goodbye"
+
         fi
-
-
+        
 dice=( 1 2 3 4 5 6 )
-
 for i in $(seq 1 $dice_roll)
 do
         for y in $(seq 1 $dice_num)
         do
-     x="${x}${dice[$(($RANDOM%6))]},"
+     x="${x}${dice[$(($RANDOM%6))]}"
+        done
+        echo "You Rolled a $x"
+
 done
 
-echo "$x"
-roll="(echo "$x" |grep 1 |grep -v 2 |grep -v 3 |grep -v 4 |grep -v 5 |grep -v 6 )"
-if [ "$roll" == "1 -o 2 -o 3 -o 4 -o 5 -o 6"
+if [ $x = " 1 -o 2 -o 3 -o 4 -o 5 -o 6 " ]
 then
-        let $Player1_Score=$roll
-fi
+        "$x = $Player1"
+        echo "\nPlayer1 your score is $Player1"
+else
+        echo "Something has gone wrong"
+
 x=""
-done
+fi
+      
+
+
+ 
