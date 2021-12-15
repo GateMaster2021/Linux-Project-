@@ -2,14 +2,14 @@
 
 x=""
 
-#The Following Block of code will be the introduction information when running the file to start the game.
+#The Following Block of code is the introduction information when running the file to start the game. This gives the user background on the game.
         echo "This is a Game of dice rolling."
         echo -e "\nIn this game the objective is to roll a higher than your oponent."
         echo -e "\nThere will be 5 rounds to this game."
         echo -e "\nAt the end of the game in case of a tie there will be an extra round to determine the winner."
         echo -e "\nThe player with the highest end total will be pronounced the winner!"
 
-#The Following Block of code will be a boolean true of false to asks the user if they would like to play or not. 
+#The Following Block of code is a boolean true of false. This asks the user if they would like to play or not. 
         echo "Would you like to begin the game? (Y/N):"
         read begin
         if [ $begin = "y" -o $begin = "Y" ]
@@ -23,16 +23,22 @@ x=""
         fi
         
 #The following block of code will begin the logic for rolling the dice.
+#If there are not two arguments echo "How many times do you want to roll? (always input 1 Roll)" (The reason to always input 1 is because it needs to take turns with player2)
+
         If [ "$#" -lt 2 }
                 echo "How many times do you want to roll? (always input 1 Roll)"
                         read dice_roll
+#It will read "dice_roll and assign it a value.
+#Then it will echo "How many dice do you want me to roll?" (The reason always input 1 is there is you only want to roll 1 die). 
 
-                echo "How many dice do you want me to roll? (Always input 2)"
+                echo "How many dice do you want me to roll? (Always input 1)"
                         read dice_num
-
+#else the statements both must equal 
+                elif
+                        [ $dice_rolls = 1 ]
+                        [ $dice_num = 1 ]
                 else
-                        dice_rolls=1
-                        dice_num=2
+                echo -e "\nYou did not input the correct values Goodbye"
         fi
 
 
